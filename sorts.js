@@ -1,4 +1,4 @@
-// bubble sort
+// bubble sort -- time: O(n**2) -- space: O(1)
 
 function bubbleSort(array) {
     let swapped = true;
@@ -17,7 +17,7 @@ function bubbleSort(array) {
     return array;
 }
 
-//selection sort
+//selection sort -- time: O(n**2) -- space: O(1)
 
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -34,7 +34,7 @@ function selectionSort(arr) {
     return arr;
 }
 
-//insertion sort
+//insertion sort -- time: O(n**2) [ in the case of nearly sorted arrays, it can run in linear time. ] -- space: O(1)
 
 function insertionSort(arr) {
     for (let i = 1; i < arr.length; i++) {
@@ -47,7 +47,7 @@ function insertionSort(arr) {
     return arr;
 }
 
-//merge sort
+//merge sort -- time: O(log(n)) -- space: O(n)
 
 function merge(array1, array2) {
     let merged = [];
@@ -84,7 +84,7 @@ function mergeSort(array) {
     return merge(sortedLeft, sortedRight);
 } 
 
-//quicksort
+//quicksort -- time: Avg Case: O(n log(n)); Worst Case: O(n2) -- space:
 
 function quickSort(array) {
     if (array.length <= 1) {
@@ -101,7 +101,16 @@ function quickSort(array) {
     return [...leftSorted, pivot, ...rightSorted];
 }
 
-//radix sort
+//radix sort -- 
+
+// time: O(n * k)
+//     -  n elements of the input array
+//     - k is the length(number of digits) of the longest integer in the array
+// There exists a camp that believes that when Radix Sort's input array contains entirely unique values, due to a characteristic of the way computers store numerical data, that k becomes log k
+//     - k, is equal to(or greater than) the total number of elements in the array, n
+//     - O(n log(k)), or approximately O(n log(n)) * making Radix Sort, at worst, equal in speed to our fastest comparison - based sorting algorithm *
+
+// space: Radix Sort is an O(n + k) space algorithm. The amount of memory consumed by the algorithm increases relative to both the size of the input array and the length of the longest integer.
 
 function radixSort(arr) {
     if (!Array.isArray(arr)) {
@@ -134,7 +143,9 @@ function getMaxDigits(nums) {
     return maxDigits;
 }
 
-//counting sort
+//counting sort -- time:  O(n + k) -- space: O(k)
+
+//According to the ECMA - 262 5th edition spec, due to 32 - bit numbers, the upper - bound length of a JavaScript array is 232 - 1, which is 4, 294, 967, 295. If the largest possible integer in your array is larger than this, you'll have to optimize the Counting Sort algorithm to use less total memory if you intend to use it.
 
 function countingSort(arr, max) {
     const result = [];
