@@ -8,4 +8,4 @@ end
 hash = { a: { b: {c: 'd'}}}
 recursive_hash_traversal(hash)
 
-puts $count # returns 3 (the number of hashes included in 'hash')
+puts $count # outputs 3 (the number of hashes included in 'hash')
