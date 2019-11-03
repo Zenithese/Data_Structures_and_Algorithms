@@ -534,7 +534,7 @@ function dijkstras(graph, source) {
         unvisited.delete(currentNode);
 
         for (let neighbor in graph[currentNode]) {
-            let distanceToNeighbor = graph[currentNode][neighbor]
+            let distanceToNeighbor = graph[currentNode][neighbor];
             let totalDistance = distanceToNeighbor + distance[currentNode];
 
             if (totalDistance < distance[neighbor]) {
