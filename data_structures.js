@@ -288,13 +288,13 @@ function breadthFirst(root) {
 // O(log(n)) time for a balanced tree //// O(n) time for unbalanced tree //
 // O(log(n)) space for a balanced tree //// O(n) space for unbalanced tree //
 
-class TreeNode {
-    constructor(val) {
-        this.val = val;
-        this.left = null;
-        this.right = null;
-    }
-}
+// class TreeNode {
+//     constructor(val) {
+//         this.val = val;
+//         this.left = null;
+//         this.right = null;
+//     }
+// }
 
 class BST {
     constructor() {
@@ -462,12 +462,12 @@ function heapify(array, n, i) {
 
 /////////////// MAX HEAP ///////////////
 
-class Node {
-    constructor() {
-        this.children = {};
-        this.isTerminal = false;
-    }
-}
+// class Node {
+//     constructor() {
+//         this.children = {};
+//         this.isTerminal = false;
+//     }
+// }
 
 class Trie {
     constructor() {
@@ -515,4 +515,44 @@ class Trie {
             return false;
         }
     }
+}
+
+/////////////// DIJKSTRAS ///////////////
+
+function dijkstras(graph, source) {
+    let distance = {};
+    for (let node in graph) {
+        distance[node] = Infinity;
+    }
+    distance[source] = 0;
+
+    let unvisited = new Set(Object.keys(graph));
+    let previous = {}; // to indentify the optimal path
+
+    while (unvisited.size > 0) {
+        let currentNode = getSmallestNode(unvisited, distance);
+        unvisited.delete(currentNode);
+
+        for (let neighbor in graph[currentNode]) {
+            let distanceToNeighbor = graph[currentNode][neighbor]
+            let totalDistance = distanceToNeighbor + distance[currentNode];
+
+            if (totalDistance < distance[neighbor]) {
+                distance[neighbor] = totalDistance;
+                previous[neighbor] = currentNode; // to indentify the optimal path
+            }
+        }
+    }
+
+    return { distance, previous };
+}
+
+function getSmallestNode(unvisited, distance) {
+    return Array.from(unvisited).reduce((minNode, node) => {
+        if (distance[node] < distance[minNode]) {
+            return node;
+        } else {
+            return minNode;
+        }
+    });
 }
