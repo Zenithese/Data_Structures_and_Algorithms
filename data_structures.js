@@ -460,7 +460,7 @@ function heapify(array, n, i) {
     heapify(array, n, swapIdx);
 }
 
-/////////////// MAX HEAP ///////////////
+/////////////// TRIE ///////////////
 
 // class Node {
 //     constructor() {
