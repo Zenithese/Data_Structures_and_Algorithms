@@ -3,9 +3,7 @@ function doNotStutter(string){
 
     for(let i = 0; i < arr.length - 2; i++) {
         if (arr[i] === arr[i+1] && arr[i] === arr[i+2]) {
-            let leftHalf = arr.slice(0, i + 2);
-            let rightHalf = arr.slice(i + 3);
-            arr = [...leftHalf, ...rightHalf]
+            arr.splice(i, 1);
             i--
         }
     }
@@ -14,3 +12,7 @@ function doNotStutter(string){
 }
 
 console.log(doNotStutter('aaabbbbaaabbaaaa'))
+
+// let leftHalf = arr.slice(0, i + 2);
+// let rightHalf = arr.slice(i + 3);
+// arr = [...leftHalf, ...rightHalf]

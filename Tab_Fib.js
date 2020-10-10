@@ -10,4 +10,17 @@ function tabFib(n) {
     return table[n];
 }
 
-console.log(tabFib(7))
+
+function regFib(n) {
+    let first = 0;
+    let second = 1;
+
+    for (let i = 1; i < n; i++) {
+        let temp = second;
+        second = first + second;
+        first = temp;
+    };
+
+    return second;
+}
+console.log(regFib(7))
